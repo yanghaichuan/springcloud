@@ -6,6 +6,7 @@ import com.netflix.zuul.context.RequestContext;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Component
 public class LoginFilter extends ZuulFilter {
@@ -28,6 +29,7 @@ public class LoginFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         RequestContext context = RequestContext.getCurrentContext();
         HttpServletRequest request = context.getRequest();
+        HttpSession session = request.getSession();
         System.out.print("进来了zuul.....................................");
         return null;
     }
