@@ -1,0 +1,36 @@
+
+info:
+  component: Hystrix Dashboard
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+server:
+  port: 7979
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
+
+eureka:
+  client:
+    #部署Eureka的区域-对于AWS，指定其中一个AWS区域，对于其他数据中心，指定任意字符串
+    #表示区域。通常指定为-d选项（例如-deureka.region=us-east-1）
+    region: default
+
+    #对于运行在eureka服务器上的eureka客户机，它需要连接到其他区域的服务器。
+    preferSameZone: false
+
+    #如果要使用基于DNS的查找来确定其他Eureka服务器，请更改此设置。例如
+    #要指定DNS条目，请检查eureka-client-test.properties、eureka-client-prod.properties。
+    #shouldusedns:错误
+    us-east-1:
+      availabilityZones: default
+
+  instance:
+    #客户端用来标识此服务的虚拟主机名
+    virtualHostName: ${spring.application.name}
