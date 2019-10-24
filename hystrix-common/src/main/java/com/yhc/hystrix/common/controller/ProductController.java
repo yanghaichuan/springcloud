@@ -1,4 +1,4 @@
-package com.yhc.hystrix.common;
+package com.yhc.hystrix.common.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.web.bind.annotation.PathVariable;
