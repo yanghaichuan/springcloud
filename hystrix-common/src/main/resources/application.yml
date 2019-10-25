@@ -10,3 +10,15 @@ eureka:
   instance:
     instance-id: ${srping.application.name}:${server.port}-hystrix
     prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 500
+      circuitBreaker:
+        requestVolumeThreshold: 3
