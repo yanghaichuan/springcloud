@@ -11,7 +11,6 @@ public class HystrixServiceFallback implements HystrixService {
 
     @Override
     public String test() {
-
         return apiService.test();
     }
 }
